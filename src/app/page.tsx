@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRightIcon } from "lucide-react";
 import { db } from "@/lib/prisma";
 import PromoBanner from "@/components/promo-banner";
-import RestaurantList from "@/components/restaurant-list";
+import RestaurantList from "@/app/restaurants/[id]/components/restaurant-list";
 
 const Home = async () => {
   const products = await db.product.findMany({
