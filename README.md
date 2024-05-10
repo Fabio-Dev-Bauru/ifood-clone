@@ -203,26 +203,6 @@ Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figm
 
 [Acesse o projeto finalizado, online](https://pedroeuzebio-fsw-foods.vercel.app/)
 
-## <img src="https://em-content.zobj.net/source/apple/391/man-technologist_1f468-200d-1f4bb.png" height="24px" /> Autor
-
-<a href="https://github.com/pedroeuzebioo">
-  <img 
-    style="border-radius: 50%;" 
-    src="https://i.imgur.com/TKbHPcH.jpg" 
-    width="100px;" 
-    alt="Visualização da foto do Pedro Euzebio"
-  />
-  <br />
-  <sub>
-    <strong>Pedro Euzebio</strong>
-  </sub>
-</a>
-
-Feito com ❤️ por Pedro Euzebio <img src="https://raw.githubusercontent.com/kaueMarques/kaueMarques/master/hi.gif" height="16px" /> Entre em contato!
-
-[![Linkedin Badge](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/pedroeuzebio)](https://linkedin.com/in/pedroeuzebio)
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-%23333?style=flat-square&logo=gmail&logoColor=white&link=mailto:pedroeuzebio.contato@gmail.com)](mailto:pedroeuzebio.contato@gmail.com)
-
 ## <img src="https://em-content.zobj.net/source/apple/391/memo_1f4dd.png" height="24px" /> Licença
 
 O projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
