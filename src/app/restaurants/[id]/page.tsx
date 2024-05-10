@@ -1,18 +1,19 @@
 import { db } from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import RestaurantImage from "./components/restaurant-image";
+import RestaurantImage from "@/app/restaurants/[id]/components/restaurant-image";
 import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import DeliveryInfo from "@/components/delivery-info";
 import ProductList from "@/app/products/[id]/components/product-list";
-import CartBanner from "./components/cart-banner";
+import CartBanner from "@/app/restaurants/[id]/components/cart-banner";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 interface RestaurantPageProps {
   params: {
     id: string;
   };
 }
-
 const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
   const restaurant = await db.restaurant.findUnique({
     where: {
@@ -50,14 +51,23 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
       },
     },
   });
-
   if (!restaurant) {
     return notFound();
   }
+  const session = await getServerSession(authOptions);
+
+  const userFavoriteRestaurants = await db.userFavoriteRestaurant.findMany({
+    where: {
+      userId: session?.user.id,
+    },
+  });
 
   return (
     <div>
-      <RestaurantImage restaurant={restaurant} />
+      <RestaurantImage
+        restaurant={restaurant}
+        userFavoriteRestaurants={userFavoriteRestaurants}
+      />
 
       <div className="relative z-50 mt-[-1.5rem] flex items-center justify-between rounded-tl-3xl rounded-tr-3xl bg-white px-5 pt-5">
         {/* TITULO */}
@@ -72,17 +82,14 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
           </div>
           <h1 className="text-xl font-semibold">{restaurant.name}</h1>
         </div>
-
         <div className="flex items-center gap-[3px] rounded-full bg-foreground px-2 py-[2px] text-white">
           <StarIcon size={12} className="fill-yellow-400 text-yellow-400" />
           <span className="text-xs font-semibold">5.0</span>
         </div>
       </div>
-
       <div className="px-5">
         <DeliveryInfo restaurant={restaurant} />
       </div>
-
       <div className="mt-3 flex gap-4 overflow-x-scroll px-5 [&::-webkit-scrollbar]:hidden">
         {restaurant.categories.map((category) => (
           <div
@@ -95,13 +102,11 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
           </div>
         ))}
       </div>
-
       <div className="mt-6 space-y-4">
         {/* TODO: mostrar produtos mais pedidos quando implementarmos realização de pedido */}
         <h2 className="px-5  font-semibold">Mais Pedidos</h2>
         <ProductList products={restaurant.products} />
       </div>
-
       {restaurant.categories.map((category) => (
         <div className="mt-6 space-y-4" key={category.id}>
           {/* TODO: mostrar produtos mais pedidos quando implementarmos realização de pedido */}
@@ -109,10 +114,8 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
           <ProductList products={category.products} />
         </div>
       ))}
-
       <CartBanner restaurant={restaurant} />
     </div>
   );
 };
-
 export default RestaurantPage;
