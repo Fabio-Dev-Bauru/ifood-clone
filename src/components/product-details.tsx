@@ -44,8 +44,7 @@ const ProductDetails = ({
     });
 
   return (
-    <div className="py-5">
-      {/* RESTAURANTE */}
+    <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white py-5">
       <div className="flex items-center gap-[0.375rem] px-5">
         <div className="relative h-6 w-6">
           <Image
@@ -60,12 +59,9 @@ const ProductDetails = ({
         </span>
       </div>
 
-      {/* NOME DO PRODUTO */}
       <h1 className="mb-2 mt-1 px-5 text-xl font-semibold">{product.name}</h1>
 
-      {/* PREÇO DO PRODUTO E QUANTIDADE */}
       <div className="flex justify-between px-5">
-        {/* PREÇO COM DESCONTO */}
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-semibold">
@@ -76,7 +72,6 @@ const ProductDetails = ({
             )}
           </div>
 
-          {/* PREÇO ORIGINAL */}
           {product.discountPercentage > 0 && (
             <p className="text-sm text-muted-foreground">
               De: {formatCurrency(Number(product.price))}
@@ -84,7 +79,6 @@ const ProductDetails = ({
           )}
         </div>
 
-        {/* QUANTIDADE */}
         <div className="flex items-center gap-3 text-center">
           <Button
             size="icon"
@@ -101,10 +95,8 @@ const ProductDetails = ({
         </div>
       </div>
 
-      {/* DADOS DA ENTREGA */}
       <div className="px-5">
         <Card className="mt-6 flex justify-around py-3">
-          {/* CUSTO */}
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1 text-muted-foreground">
               <span className="text-xs">Entrega</span>
@@ -120,7 +112,6 @@ const ProductDetails = ({
             )}
           </div>
 
-          {/* TEMPO */}
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1 text-muted-foreground">
               <span className="text-xs">Entrega</span>
