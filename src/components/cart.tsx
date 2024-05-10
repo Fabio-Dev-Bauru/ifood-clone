@@ -19,24 +19,17 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "./ui/alert-dialog";
-
 const Cart = () => {
   const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
-
   const { data } = useSession();
-
   const { products, subtotalPrice, totalPrice, totalDiscounts, clearCart } =
     useContext(CartContext);
-
   const handleFinishOrderClick = async () => {
     if (!data?.user) return;
-
     const restaurant = products[0].restaurant;
-
     try {
       setIsSubmitLoading(true);
-
       await createOrder({
         subtotalPrice,
         totalDiscounts,
@@ -50,6 +43,14 @@ const Cart = () => {
         user: {
           connect: { id: data.user.id },
         },
+        products: {
+          createMany: {
+            data: products.map((product) => ({
+              productId: product.id,
+              quantity: product.quantity,
+            })),
+          },
+        },
       });
 
       clearCart();
@@ -59,7 +60,6 @@ const Cart = () => {
       setIsSubmitLoading(false);
     }
   };
-
   return (
     <>
       <div className="flex h-full flex-col py-5">
@@ -70,7 +70,6 @@ const Cart = () => {
                 <CartItem key={product.id} cartProduct={product} />
               ))}
             </div>
-
             {/* TOTAIS */}
             <div className="mt-6">
               <Card>
@@ -79,19 +78,14 @@ const Cart = () => {
                     <span className="text-muted-foreground">Subtotal</span>
                     <span>{formatCurrency(subtotalPrice)}</span>
                   </div>
-
                   <Separator />
-
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">Descontos</span>
                     <span>- {formatCurrency(totalDiscounts)}</span>
                   </div>
-
                   <Separator className="h-[0.5px]" />
-
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">Entrega</span>
-
                     {Number(products?.[0].restaurant.deliveryFee) === 0 ? (
                       <span className="uppercase text-primary">Grátis</span>
                     ) : (
@@ -100,9 +94,7 @@ const Cart = () => {
                       )
                     )}
                   </div>
-
                   <Separator />
-
                   <div className="flex items-center justify-between text-xs font-semibold">
                     <span>Total</span>
                     <span>{formatCurrency(totalPrice)}</span>
@@ -110,7 +102,6 @@ const Cart = () => {
                 </CardContent>
               </Card>
             </div>
-
             {/* FINALIZAR PEDIDO */}
             <Button
               className="mt-6 w-full"
@@ -124,7 +115,6 @@ const Cart = () => {
           <h2 className="text-left font-medium">Sua sacola está vazia.</h2>
         )}
       </div>
-
       <AlertDialog
         open={isConfirmDialogOpen}
         onOpenChange={setIsConfirmDialogOpen}
@@ -138,13 +128,14 @@ const Cart = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={isConfirmDialogOpen}>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleFinishOrderClick}
+              disabled={isSubmitLoading}
+            >
               {isSubmitLoading && (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               )}
-              Cancelar
-            </AlertDialogCancel>
-            <AlertDialogAction onClick={handleFinishOrderClick}>
               Finalizar
             </AlertDialogAction>
           </AlertDialogFooter>
@@ -153,5 +144,4 @@ const Cart = () => {
     </>
   );
 };
-
 export default Cart;
