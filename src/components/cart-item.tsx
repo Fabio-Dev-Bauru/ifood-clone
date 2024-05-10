@@ -6,12 +6,11 @@ import {
 } from "@/app/helpers/price";
 import { Button } from "./ui/button";
 import { ChevronLeftIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
-import { useContext } from "react";
+import { memo, useContext } from "react";
 
 interface CartItemProps {
   cartProduct: CartProduct;
 }
-
 const CartItem = ({ cartProduct }: CartItemProps) => {
   const {
     decreaseProductQuantity,
@@ -19,14 +18,14 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
     removeProductFromCart,
   } = useContext(CartContext);
 
+  console.log("CartItem");
+
   const handleDecreaseQuantityClick = () =>
     decreaseProductQuantity(cartProduct.id);
 
   const handleIncreaseQuantityClick = () =>
     increaseProductQuantity(cartProduct.id);
-
   const handleRemoveClick = () => removeProductFromCart(cartProduct.id);
-
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-4">
@@ -39,10 +38,8 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
             className="rounded-lg object-cover"
           />
         </div>
-
         <div className="space-y-1">
           <h3 className="text-xs">{cartProduct.name}</h3>
-
           <div className="flex items-center gap-1">
             <h4 className="text-sm font-semibold">
               {formatCurrency(
@@ -57,9 +54,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
               </span>
             )}
           </div>
-
           {/* QUANTIDADE */}
-
           <div className="flex items-center text-center">
             <Button
               size="icon"
@@ -82,7 +77,6 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
           </div>
         </div>
       </div>
-
       {/* BOTÃO DE DELETAR */}
       <Button
         size="icon"
@@ -96,4 +90,6 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
   );
 };
 
-export default CartItem;
+export default memo(CartItem, (prev, next) => {
+  return prev.cartProduct.quantity === next.cartProduct.quantity;
+});
