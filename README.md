@@ -87,7 +87,7 @@ Você deve seguir o passo a passo para instalar o projeto:
 1. Você deve abrir o terminal e clonar o repositório do projeto
 
 ```bash
-git clone https://github.com/pedroeuzebioo/fsw-foods
+git clone https://github.com/Fabio-Dev-Bauru/ifood-clone.git
 ```
 
 ## <img src="https://em-content.zobj.net/source/apple/391/gear_2699-fe0f.png" height="24px" /> Executando
@@ -135,6 +135,7 @@ DATABASE_URL="Você deve colar entre as aspas a Connecting String"
 6. Você deve executar o seguinte comando
 
 ```bash
+npx prisma db push
 npx prisma db seed
 ```
 
