@@ -20,8 +20,11 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { CartContext } from "@/context/cart";
-import { formatCurrency, calculateProductTotalPrice } from "@/helpers/price";
+import { CartContext } from "@/app/context/cart";
+import {
+  formatCurrency,
+  calculateProductTotalPrice,
+} from "@/app/helpers/price";
 import { Prisma } from "@prisma/client";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";

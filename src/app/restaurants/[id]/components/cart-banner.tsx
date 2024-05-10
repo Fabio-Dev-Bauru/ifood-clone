@@ -9,8 +9,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { CartContext } from "@/context/cart";
-import { formatCurrency } from "@/helpers/price";
+import { CartContext } from "@/app/context/cart";
+import { formatCurrency } from "@/app/helpers/price";
 import { Restaurant } from "@prisma/client";
 import { useContext } from "react";
 
