@@ -8,7 +8,6 @@
 - [Tecnologias](#tecnologias)
 - [Requisitos](#requisitos)
   - [Requisitos Funcionais (RF)](#requisitos-funcionais)
-  - [Regras de Negócio](#regras-negocio)
   - [Requisitos Não-Funcionais (RNF)](#requisitos-nao-funcionais)
 - [Pré-requisitos](#pre-requisitos)
 - [Instalação](#instalacao)
