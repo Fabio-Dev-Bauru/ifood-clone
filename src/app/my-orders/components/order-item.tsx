@@ -1,13 +1,15 @@
 "use client";
-
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { CartContext } from "@/app/context/cart";
 import { formatCurrency } from "@/app/helpers/price";
 import { OrderStatus, Prisma } from "@prisma/client";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useContext } from "react";
 
 interface OrderItemProps {
   order: Prisma.OrderGetPayload<{
@@ -21,7 +23,6 @@ interface OrderItemProps {
     };
   }>;
 }
-
 const getOrderStatusLabel = (status: OrderStatus) => {
   switch (status) {
     case "CANCELED":
@@ -38,6 +39,20 @@ const getOrderStatusLabel = (status: OrderStatus) => {
 };
 
 const OrderItem = ({ order }: OrderItemProps) => {
+  const { addProductToCart } = useContext(CartContext);
+
+  const router = useRouter();
+
+  const handleRedoOrderClick = () => {
+    for (const orderProduct of order.products) {
+      addProductToCart({
+        product: { ...orderProduct.product, restaurant: order.restaurant },
+        quantity: orderProduct.quantity,
+      });
+    }
+
+    router.push(`/restaurants/${order.restaurantId}`);
+  };
   return (
     <Card>
       <CardContent className="p-5">
@@ -48,18 +63,15 @@ const OrderItem = ({ order }: OrderItemProps) => {
             {getOrderStatusLabel(order.status)}
           </span>
         </div>
-
         <div className="flex items-center justify-between pt-3">
           <div className="flex items-center gap-2">
             <Avatar className="h-6 w-6">
               <AvatarImage src={order.restaurant.imageUrl} />
             </Avatar>
-
             <span className="text-sm font-semibold">
               {order.restaurant.name}
             </span>
           </div>
-
           <Button
             variant="link"
             size="icon"
@@ -71,11 +83,9 @@ const OrderItem = ({ order }: OrderItemProps) => {
             </Link>
           </Button>
         </div>
-
         <div className="py-3">
           <Separator />
         </div>
-
         <div className="space-y-2">
           {order.products.map((product) => (
             <div key={product.id} className="flex items-center gap-2">
@@ -90,11 +100,9 @@ const OrderItem = ({ order }: OrderItemProps) => {
             </div>
           ))}
         </div>
-
         <div className="py-3">
           <Separator />
         </div>
-
         <div className="flex items-center justify-between">
           <p className="text-sm">{formatCurrency(Number(order.totalPrice))}</p>
           <Button
@@ -102,6 +110,7 @@ const OrderItem = ({ order }: OrderItemProps) => {
             size="sm"
             className="text-xs text-primary"
             disabled={order.status !== "COMPLETED"}
+            onClick={handleRedoOrderClick}
           >
             Refazer pedido
           </Button>
@@ -110,5 +119,4 @@ const OrderItem = ({ order }: OrderItemProps) => {
     </Card>
   );
 };
-
 export default OrderItem;
