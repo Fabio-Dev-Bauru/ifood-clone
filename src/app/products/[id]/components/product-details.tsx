@@ -1,7 +1,7 @@
 "use client";
 
 import DiscountBadge from "@/components/discount-badge";
-import ProductList from "@/components/product-list";
+import ProductList from "@/app/products/[id]/components/product-list";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { formatCurrency, calculateProductTotalPrice } from "@/helpers/price";
@@ -118,13 +118,9 @@ const ProductDetails = ({
               <TimerIcon size={14} />
             </div>
 
-            {Number(product.restaurant.deliveryFee) > 0 ? (
-              <p className="text-xs font-semibold">
-                {formatCurrency(Number(product.restaurant.deliveryFee))}
-              </p>
-            ) : (
-              <p className="text-xs font-semibold">Grátis</p>
-            )}
+            <p className="text-xs font-semibold">
+              {product.restaurant.deliveryTimeMinutes} min
+            </p>
           </div>
         </Card>
       </div>
