@@ -199,10 +199,6 @@ Você quer fazer parte desse projeto? Leia o arquivo [CONTRIBUTING.md](CONTRIBUT
 
 Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/uQIgYk6xDRWgjHCjlaDYBo/%5BLIVE%5D-FSW-Foods?type=design&node-id=381-7368&mode=design). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
-## <img src="https://em-content.zobj.net/source/apple/391/globe-with-meridians_1f310.png" height="24px" /> Deploy
-
-[Acesse o projeto finalizado, online](https://pedroeuzebio-fsw-foods.vercel.app/)
-
 ## <img src="https://em-content.zobj.net/source/apple/391/memo_1f4dd.png" height="24px" /> Licença
 
 O projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
