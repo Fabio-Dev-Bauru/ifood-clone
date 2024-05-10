@@ -2,7 +2,7 @@
   <img src="./public/logo.svg" alt="Logo do Projeto">
 </h1>
 
-## 📃 Roteiro
+## <img src="https://em-content.zobj.net/source/apple/391/page-with-curl_1f4c3.png" height="24px" /> Roteiro
 
 - [Sobre](#sobre)
 - [Tecnologias](#tecnologias)
@@ -25,11 +25,11 @@
   />
 </p>
 
-## ❓ Sobre
+## <img src="https://em-content.zobj.net/source/apple/391/question-mark_2753.png" height="24px" /> Sobre
 
 Durante a 4ª edição do Full Stack Week (FSW), tive a oportunidade de desenvolver o projeto "FSW Foods", um Sistema de Delivery de Comida inspirado em plataformas populares como iFood.
 
-## 🛠️ Tecnologias
+## <img src="https://em-content.zobj.net/source/apple/391/hammer-and-wrench_1f6e0-fe0f.png" height="24px" /> Tecnologias
 
 O projeto foi desenvolvido com as seguintes tecnologias:
 
@@ -43,7 +43,7 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 - [PostgreSQL](https://www.postgresql.org/)
 - [Neon](https://neon.tech/)
 
-## 🚀 Requisitos
+## <img src="https://em-content.zobj.net/source/apple/391/rocket_1f680.png" height="24px" /> Requisitos
 
 O projeto está em desenvolvimento.
 
@@ -70,7 +70,7 @@ O projeto está em desenvolvimento.
 - [x] O sistema deve ser dimensionado para lidar com um aumento na demanda à medida que mais usuários se registram e fazem pedidos.
 - [x] O aplicativo deve ser compatível com uma variedade de dispositivos e sistemas operacionais móveis, como iOS e Android.
 
-## 📋 Pré-requisitos
+## <img src="https://em-content.zobj.net/source/apple/391/clipboard_1f4cb.png" height="24px" /> Pré-requisitos
 
 Você deve verificar aos seguintes pré-requisitos para poder instalar e executar o projeto:
 
@@ -80,7 +80,7 @@ Você deve verificar aos seguintes pré-requisitos para poder instalar e executa
 4. Você deve ter uma conta no [Neon](https://neon.tech/).
 5. Você deve ter uma conta do [Google](https://gogole.com/) e [Console Cloud Google](https://console.cloud.google.com/)
 
-## 🔧 Instalação
+## <img src="https://em-content.zobj.net/source/apple/391/wrench_1f527.png" height="24px" /> Instalação
 
 Você deve seguir o passo a passo para instalar o projeto:
 
@@ -90,7 +90,7 @@ Você deve seguir o passo a passo para instalar o projeto:
 git clone https://github.com/pedroeuzebioo/fsw-foods
 ```
 
-## ⚙️ Executando
+## <img src="https://em-content.zobj.net/source/apple/391/gear_2699-fe0f.png" height="24px" /> Executando
 
 Você deve seguir o passo a passo para executar o projeto:
 
@@ -191,19 +191,19 @@ ou
 pnpm run dev
 ```
 
-## 🖇️ Contribuindo
+## <img src="https://em-content.zobj.net/source/apple/391/linked-paperclips_1f587-fe0f.png" height="24px" /> Contribuindo
 
 Você quer fazer parte desse projeto? Leia o arquivo [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## 🔖 Layout
+## <img src="https://em-content.zobj.net/source/apple/391/bookmark_1f516.png" height="24px" /> Layout
 
 Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/uQIgYk6xDRWgjHCjlaDYBo/%5BLIVE%5D-FSW-Foods?type=design&node-id=381-7368&mode=design). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
-## 🌐 Deploy
+## <img src="https://em-content.zobj.net/source/apple/391/globe-with-meridians_1f310.png" height="24px" /> Deploy
 
 [Acesse o projeto finalizado, online](https://pedroeuzebio-fsw-foods.vercel.app/)
 
-## 🧑‍💻 Autor
+## <img src="https://em-content.zobj.net/source/apple/391/man-technologist_1f468-200d-1f4bb.png" height="24px" /> Autor
 
 <a href="https://github.com/pedroeuzebioo">
   <img 
@@ -218,11 +218,11 @@ Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figm
   </sub>
 </a>
 
-Feito com ❤️ por Pedro Euzebio 👋 Entre em contato!
+Feito com ❤️ por Pedro Euzebio <img src="https://raw.githubusercontent.com/kaueMarques/kaueMarques/master/hi.gif" height="16px" /> Entre em contato!
 
 [![Linkedin Badge](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/pedroeuzebio)](https://linkedin.com/in/pedroeuzebio)
 [![Gmail Badge](https://img.shields.io/badge/-Gmail-%23333?style=flat-square&logo=gmail&logoColor=white&link=mailto:pedroeuzebio.contato@gmail.com)](mailto:pedroeuzebio.contato@gmail.com)
 
-## 📝 Licença
+## <img src="https://em-content.zobj.net/source/apple/391/memo_1f4dd.png" height="24px" /> Licença
 
 O projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
